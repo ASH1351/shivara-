@@ -1,0 +1,574 @@
+/* ========================================================
+   SHIVARA BY RIDDHI - RESPONSIVE STYLESHEET
+   Mobile-First, Seamless Adaptability (320px to 1920px+)
+   Breakpoints: 1280px, 1024px, 768px, 480px, 320px
+   ======================================================== */
+
+/* ========================================================
+   STICKY MOBILE BOTTOM BAR (MANDATORY REQUIREMENT)
+   ======================================================== */
+.mobile-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(250, 243, 227, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1.5px solid rgba(184, 134, 59, 0.3);
+  box-shadow: 0 -4px 20px rgba(138, 94, 31, 0.12);
+  z-index: 9998;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+}
+
+.bottom-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 54px;
+  min-height: 48px;
+  color: var(--text-dark-cocoa);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.25s, transform 0.2s;
+}
+
+.bottom-bar-item:hover,
+.bottom-bar-item.is-active {
+  color: var(--gold-deep);
+}
+
+.bottom-bar-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bottom-bar-item .bottom-badge {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  background: var(--gold-gradient);
+  color: #FFFDF7;
+  font-size: 0.62rem;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border: 1px solid var(--bg-pearl);
+}
+
+/* ========================================================
+   MOBILE FULL-SCREEN NAVIGATION DRAWER
+   ======================================================== */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(58, 39, 20, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 10030;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s var(--transition-smooth);
+}
+
+.mobile-drawer-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 86%;
+  max-width: 380px;
+  height: 100vh;
+  background: var(--bg-cream);
+  z-index: 10035;
+  box-shadow: 10px 0 40px rgba(58, 39, 20, 0.25);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  border-right: 1.5px solid var(--gold-light);
+}
+
+.mobile-drawer.is-open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(184, 134, 59, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-pearl);
+}
+
+.mobile-drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-drawer-brand img {
+  width: 40px;
+  height: 40px;
+  mix-blend-mode: multiply;
+}
+
+.mobile-drawer-brand span {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.16em;
+}
+
+.mobile-drawer-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 134, 59, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark-cocoa);
+}
+
+.mobile-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 10px;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-dark-cocoa);
+  border-bottom: 1px solid rgba(184, 134, 59, 0.15);
+  min-height: 48px;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  color: var(--gold-rich);
+  padding-left: 16px;
+}
+
+.mobile-drawer-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(184, 134, 59, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-currency-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-pearl);
+  border: 1px solid rgba(184, 134, 59, 0.25);
+  border-radius: 6px;
+}
+
+/* ========================================================
+   BREAKPOINT: 1280px (LAPTOPS & MEDIUM DESKTOPS)
+   ======================================================== */
+@media (max-width: 1280px) {
+  .nav-menu {
+    gap: 22px;
+  }
+  .nav-link {
+    font-size: 0.98rem;
+  }
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-top {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 36px;
+  }
+}
+
+/* ========================================================
+   BREAKPOINT: 1024px (TABLETS LANDSCAPE)
+   ======================================================== */
+@media (max-width: 1024px) {
+  .nav-menu,
+  .nav-consultation-btn {
+    display: none;
+  }
+  .mobile-hamburger-btn {
+    display: flex;
+  }
+  .hero-trust-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .story-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .story-seal-badge {
+    right: 10px;
+    bottom: 10px;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-grid .feature-card:last-child {
+    grid-column: span 2;
+  }
+  .stylist-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .testimonial-nav-btn.prev { left: -10px; }
+  .testimonial-nav-btn.next { right: -10px; }
+  .quickview-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ========================================================
+   BREAKPOINT: 768px (TABLETS PORTRAIT & MOBILE)
+   ======================================================== */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 70px; /* Space for sticky mobile bottom bar */
+  }
+
+  .mobile-bottom-bar {
+    display: flex;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 80px; /* Shift up above bottom bar */
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .toast-container {
+    bottom: 80px;
+    left: 16px;
+    right: 16px;
+  }
+
+  /* Collections Horizontal Swipe on Mobile */
+  .collections-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 14px;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .collections-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .collection-card {
+    flex: 0 0 290px;
+    scroll-snap-align: start;
+  }
+
+  /* Product Grid: 2 Columns on Mobile */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card-body {
+    padding: 12px 10px 14px;
+  }
+
+  .product-title {
+    font-size: 1.05rem;
+  }
+
+  .product-price {
+    font-size: 1.2rem;
+  }
+
+  .product-card-buttons {
+    grid-template-columns: 1fr 36px;
+    gap: 6px;
+  }
+
+  .add-to-bag-btn {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  .add-to-bag-btn span {
+    display: inline;
+  }
+
+  .add-to-bag-btn svg {
+    display: none;
+  }
+
+  .wa-inquiry-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .product-specs-snippet {
+    font-size: 0.68rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-bar {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .catalog-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .filter-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .filter-actions {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .sort-select-wrapper {
+    flex: 1;
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-box {
+    padding: 34px 20px;
+  }
+
+  .stylist-container {
+    padding: 24px 18px;
+  }
+
+  .contact-form-box {
+    padding: 28px 18px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .search-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bridal-banner-section {
+    padding: 80px 20px;
+    background-attachment: scroll; /* Fix for mobile browser stutter */
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}
+
+/* ========================================================
+   BREAKPOINT: 480px (SMARTPHONES)
+   ======================================================== */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 10px 16px;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-emblem-small {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-section {
+    padding: 20px 16px 40px;
+  }
+
+  .hero-wreath-anchor {
+    width: 230px;
+    height: 230px;
+    margin-bottom: 16px;
+  }
+
+  .hero-main-heading {
+    font-size: 2.1rem;
+  }
+
+  .hero-subheading {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-cta-group a,
+  .hero-cta-group button {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .story-pillars {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid .feature-card:last-child {
+    grid-column: span 1;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .consultation-radio-group {
+    grid-template-columns: 1fr;
+  }
+
+  .quickview-dialog,
+  .search-modal-dialog,
+  .bridal-booking-dialog,
+  .checkout-dialog {
+    padding: 20px 16px;
+  }
+
+  .qv-thumbnails-list {
+    overflow-x: auto;
+  }
+
+  .announcement-bar {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .announcement-message span:last-child {
+    display: none;
+  }
+}
+
+/* ========================================================
+   BREAKPOINT: 320px (IPHONE SE & ULTRA-COMPACT SCREENS)
+   ======================================================== */
+@media (max-width: 360px) {
+  .products-grid {
+    grid-template-columns: 1fr; /* Single column on extreme narrow screens */
+  }
+  .brand-name {
+    font-size: 1rem;
+  }
+  .brand-sub {
+    font-size: 0.62rem;
+  }
+  .hero-wreath-anchor {
+    width: 200px;
+    height: 200px;
+  }
+}
